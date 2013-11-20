@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCount", "WordCount\Word
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupBy", "GroupBy\GroupBy.csproj", "{D5BA2E8D-A475-4133-B171-DE608B60167A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BST", "BST\BST.csproj", "{C0D40E90-8DDF-4F4E-B264-F3246A8E4BB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sort", "Sort\Sort.csproj", "{4EE8DFA2-80F5-46C6-A2C2-7B3035386656}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,6 +23,14 @@ Global
 		{D5BA2E8D-A475-4133-B171-DE608B60167A}.Debug|x86.Build.0 = Debug|x86
 		{D5BA2E8D-A475-4133-B171-DE608B60167A}.Release|x86.ActiveCfg = Release|x86
 		{D5BA2E8D-A475-4133-B171-DE608B60167A}.Release|x86.Build.0 = Release|x86
+		{C0D40E90-8DDF-4F4E-B264-F3246A8E4BB6}.Debug|x86.ActiveCfg = Debug|x86
+		{C0D40E90-8DDF-4F4E-B264-F3246A8E4BB6}.Debug|x86.Build.0 = Debug|x86
+		{C0D40E90-8DDF-4F4E-B264-F3246A8E4BB6}.Release|x86.ActiveCfg = Release|x86
+		{C0D40E90-8DDF-4F4E-B264-F3246A8E4BB6}.Release|x86.Build.0 = Release|x86
+		{4EE8DFA2-80F5-46C6-A2C2-7B3035386656}.Debug|x86.ActiveCfg = Debug|x86
+		{4EE8DFA2-80F5-46C6-A2C2-7B3035386656}.Debug|x86.Build.0 = Debug|x86
+		{4EE8DFA2-80F5-46C6-A2C2-7B3035386656}.Release|x86.ActiveCfg = Release|x86
+		{4EE8DFA2-80F5-46C6-A2C2-7B3035386656}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
