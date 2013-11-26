@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace WordCount
 {
-    class Program
+    partial class Program
     {
         static void Main(string[] args)
         {
@@ -13,6 +13,21 @@ namespace WordCount
             Debug.Assert(CountWords("    Hello world") == 2);
             Debug.Assert(CountWords("Hello world    ") == 2);
             Debug.Assert(CountWords("Hello      world") == 2);
+
+            char[] word = new char[] { 'a', 'b', 'c', 'd' };
+            ReverseString(word);
+            word = new char[] { 'a', 'b', 'c', 'd', 'e' };
+            ReverseString(word);
+        }
+
+        public static void Swap<T>(T[] array, int pos1, int pos2)
+        {
+            if (pos1 != pos2)
+            {
+                T temp = array[pos1];
+                array[pos1] = array[pos2];
+                array[pos2] = temp;
+            }
         }
 
         public static int CountWords(string test)

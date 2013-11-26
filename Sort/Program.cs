@@ -15,7 +15,7 @@ namespace Sort
                 Debug.Assert(IsSorted(array));
             }
 
-            {                 
+            {
                 int[] array = Sample.GetSample();
                 RunInsertionSort(array);
                 Debug.Assert(IsSorted(array));
@@ -28,7 +28,27 @@ namespace Sort
                 result = BetterFibonacchi(6);
                 Debug.Assert(result == 8);
             }
-        }     
+
+            {
+                Partition(new int[] { 12, 7, 14, 9, 10, 11 }, 0, 5);
+
+                Partition2(new int[] { 12, 7, 14, 9, 10, 11 }, 0, 5);
+
+                int[] array = new int[] { 12, 7, 14, 9, 10, 11 };
+                QuickSort(array, 0, 5);
+                Debug.Assert(IsSorted(array));
+            }
+        }
+
+        public static void Swap(int[] array, int pos1, int pos2)
+        {
+            if (pos1 != pos2)
+            {
+                int temp = array[pos1];
+                array[pos1] = array[pos2];
+                array[pos2] = temp;
+            }
+        }
 
         private static bool IsSorted(int[] array)
         {

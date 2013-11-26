@@ -31,14 +31,6 @@ namespace Sort
             SelectionSort(array, index + 1);
         }
 
-        public static void Swap(int[] array, int pos1, int pos2)
-        {
-            if (pos1 != pos2)
-            {
-                int temp = array[pos1];
-                array[pos1] = array[pos2];
-                array[pos2] = temp;
-            }
-        }
+
     }
 }
