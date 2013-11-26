@@ -6,38 +6,42 @@ namespace Finding
 {
     partial class Program
     {
-        // Find a value that appear more than half of an array
-        // what is the input? an array of integers
-        // what is the timing? at once
-        // is input mutalbe? probbaly don't want to change. just scanning.
-        
-        // what is the output? a single integer value
-        
-        // Come up with sample input
-        // { 2, 3, 4, 4, 4}
-        // { 3, 3, 3, 3, 3}
-        // { 5 }
-        // { 5, 1 } <= which is majority? We say, no majority?
-
-        // one way to do it is to have a dictionary<int, int> wherre
-        // key is a certain value in the array and dictionary value is
-        // the number of occurrances. 
-        // In worst case { 1, 2, 3, 4} all distinct values, we allocate
-        // n ke-value pair in the dictionary
-
-        int FindMajority(int[] array, int begin, int end)
+        /// <summary>
+        /// This is Moor's voting algorithm. Note that this can detect up to n/2 element
+        /// to figure out a "majority (which is > n/2, or >= n/2+1, you have to have phase two
+        /// to count the occurrance of a given "candidate" and check >n/2
+        /// </summary>
+        /// <param name="array"></param>
+        /// <returns></returns>
+        public static int FindMostOccur(int[] array)
         {
-            // find a mid-point
-            int mid = end - begin / 2;
+            // { 3, 3, 3, 4, 5, 6}
+            //   2  3  4  3  2  1  <= not zero
+            // { 4, 5, 6, 3, 3, 3 }
+            //   0  0  0  2  3  4  <= not zero
 
-            for (int i = 0; i < mid; i++)
+            int index = 0;
+            int count = 1;
+
+            for (int i = 1; i < array.Length; i++)
             {
-                if (array[i] > mid)
+                if (array[index] == array[i])
                 {
+                    count++;
+                }
+                else
+                {
+                    count--;
+                }
+
+                if (count == 0)
+                {
+                    index = i;
+                    count = 1;
                 }
             }
 
-            return 0;
+            return array[index];
         }
 
     }
