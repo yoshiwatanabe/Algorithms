@@ -38,6 +38,30 @@ namespace Sort
                 QuickSort(array, 0, 5);
                 Debug.Assert(IsSorted(array));
             }
+
+            {
+                int[] arrayReadyToBeMerged = new int[] { 2, 4, 5, 3, 8, 9};
+                int[] helper = new int[arrayReadyToBeMerged.Length];
+                Merge(arrayReadyToBeMerged, helper, 0, 2, 5);
+                Debug.Assert(IsSorted(arrayReadyToBeMerged));
+
+                int[] array = new int[] { 5, 7};// , 3, 2, 8, 1, 9, 6 };
+                DoMergeSort(array, 0, array.Length - 1);
+                Debug.Assert(IsSorted(array));
+
+                array = new int[] { 7, 5 };// , 3, 2, 8, 1, 9, 6 };
+                DoMergeSort(array, 0, array.Length - 1);
+                Debug.Assert(IsSorted(array));
+
+                array = new int[] { 7, 5, 3 };
+                DoMergeSort(array, 0, array.Length - 1);
+                Debug.Assert(IsSorted(array));
+
+                array = new int[] { 5, 7, 3, 2};//, 8, 1, 9, 6 };
+                DoMergeSort(array, 0, array.Length - 1);
+                Debug.Assert(IsSorted(array));
+            }
+
         }
 
         public static void Swap(int[] array, int pos1, int pos2)
