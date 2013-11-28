@@ -14,15 +14,13 @@ namespace Sort
 
         public static void MergeSort(int[] array, int[] helper, int begin, int last)
         {
-            if (begin >= last)
-            {
+            if (begin >= last) {
                 return;
             }
 
             int middle = (begin + last) / 2; // Earlier, I was doing "last-begin" which was wrong..
             MergeSort(array, helper, begin, middle);
-            MergeSort(array, helper, middle + 1, last);
-            
+            MergeSort(array, helper, middle + 1, last);            
             Merge(array, helper, begin, middle, last);            
         }
 

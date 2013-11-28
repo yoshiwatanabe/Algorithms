@@ -30,6 +30,22 @@ namespace Finding
             array = new int[] { 3, 4, 5, 1, 1, 1 };
             found = FindMostOccur(array);
             Debug.Assert(found == 1);
+
+            array = new int[] { 4, 5, 6, 7 };
+            int atIndex = BinarySearch(array, 4);
+            Debug.Assert(atIndex == 0);
+
+            atIndex = BinarySearch(array, 5);
+            Debug.Assert(atIndex == 1);
+
+            atIndex = BinarySearch(array, 6);
+            Debug.Assert(atIndex == 2);
+
+            atIndex = BinarySearch(array, 7);
+            Debug.Assert(atIndex == 3);
+
+            atIndex = BinarySearch(array, 100);
+            Debug.Assert(atIndex == -1);
         }
 
         public static void Swap<T>(T[] array, int pos1, int pos2)
