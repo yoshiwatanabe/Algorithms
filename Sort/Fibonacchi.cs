@@ -34,12 +34,11 @@ namespace Sort
         /// <returns></returns>
         public static long BetterFibonacchi(int n)
         {
-            int[] result = new int[] { 0, 1 }; // To handle base case.
-            if (n < 2) // Base case. f(0) is 0, f(1) is 1
-                return result[n];
+            if (n == 0) return 0;
+            if (n == 1) return 1;
 
-            long fibNMinusOne = 1; // n-1
             long fibNMinusTwo = 0; // n-2
+            long fibNMinusOne = 1; // n-1            
             long fibN = 0; // n
 
             for (int i = 2; i <= n; ++i) // Tip: start with 2 so that its n-1 is 1 and n-2 is 0
