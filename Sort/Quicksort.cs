@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 
 namespace Sort
 {
@@ -69,6 +70,17 @@ namespace Sort
 
             Swap(array, storeIndex + 1, last); // pivot value belongs to "left" group. we know storeIndex +1 contains larger value is must have been compared with pivotValue earilier when 'i' visited it.
             return storeIndex + 1; // because storeIndex is 1 before the appropriate insertion point, we must add one
+        }
+
+        public static void TestQuickSort()
+        {
+            Partition(new int[] { 12, 7, 14, 9, 10, 11 }, 0, 5);
+
+            Partition2(new int[] { 12, 7, 14, 9, 10, 11 }, 0, 5);
+
+            int[] array = new int[] { 12, 7, 14, 9, 10, 11 };
+            QuickSort(array, 0, 5);
+            Debug.Assert(IsSorted(array));
         }
     }
 }

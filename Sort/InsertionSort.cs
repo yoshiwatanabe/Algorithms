@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 
 namespace Sort
 {
@@ -36,5 +37,14 @@ namespace Sort
             }
 
         }
+
+
+        public static void TestInsertionSort()
+        {
+            int[] array = new int[] { 34, 5, 38, 25, 51, 8, 33, 53, 21 };
+            RunInsertionSort(array);
+            Debug.Assert(IsSorted(array));
+        }
+
     }
 }

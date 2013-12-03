@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 
 namespace Sort
 {
@@ -31,6 +32,13 @@ namespace Sort
             SelectionSort(array, index + 1);
         }
 
+        public static void TestSelectionSort()
+        {
+            // Selection Sort
+            int[] array = new int[] { 34, 5, 38, 25, 51, 8, 33, 53, 21 };
+            SelectionSort(array);
+            Debug.Assert(IsSorted(array));
+        }
 
     }
 }

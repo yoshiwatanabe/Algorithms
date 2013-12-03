@@ -9,52 +9,11 @@ namespace Sort
     {
         static void Main(string[] args)
         {
-            { // Selection Sort
-                int[] array = Sample.GetSample();
-                SelectionSort(array);
-                Debug.Assert(IsSorted(array));
-            }
-
-            {
-                int[] array = Sample.GetSample();
-                RunInsertionSort(array);
-                Debug.Assert(IsSorted(array));
-            }
-            {
-                Partition(new int[] { 12, 7, 14, 9, 10, 11 }, 0, 5);
-
-                Partition2(new int[] { 12, 7, 14, 9, 10, 11 }, 0, 5);
-
-                int[] array = new int[] { 12, 7, 14, 9, 10, 11 };
-                QuickSort(array, 0, 5);
-                Debug.Assert(IsSorted(array));
-            }
-
-            {
-                int[] arrayReadyToBeMerged = new int[] { 2, 4, 5, 3, 8, 9};
-                int[] helper = new int[arrayReadyToBeMerged.Length];
-                Merge(arrayReadyToBeMerged, helper, 0, 2, 5);
-                Debug.Assert(IsSorted(arrayReadyToBeMerged));
-
-                int[] array = new int[] { 5, 7};// , 3, 2, 8, 1, 9, 6 };
-                DoMergeSort(array, 0, array.Length - 1);
-                Debug.Assert(IsSorted(array));
-
-                array = new int[] { 7, 5 };// , 3, 2, 8, 1, 9, 6 };
-                DoMergeSort(array, 0, array.Length - 1);
-                Debug.Assert(IsSorted(array));
-
-                array = new int[] { 7, 5, 3 };
-                DoMergeSort(array, 0, array.Length - 1);
-                Debug.Assert(IsSorted(array));
-
-                array = new int[] { 5, 7, 3, 2};//, 8, 1, 9, 6 };
-                DoMergeSort(array, 0, array.Length - 1);
-                Debug.Assert(IsSorted(array));
-            }
-
+            TestSelectionSort();
+            TestInsertionSort();
+            TestQuickSort();
+            TestMergeSort();
         }
-
 
         public static void Swap(int[] array, int pos1, int pos2)
         {
@@ -66,7 +25,7 @@ namespace Sort
             }
         }
 
-        private static bool IsSorted(int[] array)
+        public static bool IsSorted(int[] array)
         {
             if (array.Length == 0)
             {
