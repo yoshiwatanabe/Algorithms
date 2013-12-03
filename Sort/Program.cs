@@ -20,15 +20,6 @@ namespace Sort
                 RunInsertionSort(array);
                 Debug.Assert(IsSorted(array));
             }
-
-            {
-                long result = FindNthFibonacciRecursively(6); // 0 1 1 2 3 5 8
-                Debug.Assert(result == 8);
-
-                result = FindNthFibonacciIterative(6);
-                Debug.Assert(result == 8);
-            }
-
             {
                 Partition(new int[] { 12, 7, 14, 9, 10, 11 }, 0, 5);
 
@@ -63,6 +54,7 @@ namespace Sort
             }
 
         }
+
 
         public static void Swap(int[] array, int pos1, int pos2)
         {

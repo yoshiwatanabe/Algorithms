@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 
-namespace Sort
+namespace Finding
 {
     partial class Program
     {
@@ -51,6 +52,20 @@ namespace Sort
             }
 
             return fibN;
+        }
+
+
+        public static void TestFindFibonacci()
+        {
+            long result = FindNthFibonacciRecursively(6); // 0 1 1 2 3 5 8
+            Debug.Assert(result == 8);
+
+            result = FindNthFibonacciIterative(6);
+            Debug.Assert(result == 8);
+        }
+
+        public static void Foo()
+        {
         }
     }
 }

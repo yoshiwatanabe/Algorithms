@@ -11,7 +11,9 @@ namespace Finding
         {
             TestFindDuplicate();
             TestFindMajority();
-            TestBinarySearch();
+            TestBinarySearch();            
+            TestFindFibonacci();
         }
     }
 }
+

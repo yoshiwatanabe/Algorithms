@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinarySearch.cs" />
+    <Compile Include="Fibonacci.cs" />
     <Compile Include="FindDuplicate.cs" />
     <Compile Include="MajorityInArray.cs" />
     <Compile Include="Program.cs" />
