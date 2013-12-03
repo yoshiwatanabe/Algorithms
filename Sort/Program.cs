@@ -22,10 +22,10 @@ namespace Sort
             }
 
             {
-                long result = SlowFibonacchi(6); // 0 1 1 2 3 5 8
+                long result = FindNthFibonacciRecursively(6); // 0 1 1 2 3 5 8
                 Debug.Assert(result == 8);
 
-                result = BetterFibonacchi(6);
+                result = FindNthFibonacciIterative(6);
                 Debug.Assert(result == 8);
             }
 

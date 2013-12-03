@@ -11,7 +11,7 @@ namespace Sort
         /// </summary>
         /// <param name="n"></param>
         /// <returns>Returns n-th fibonnach value</returns>
-        public static long SlowFibonacchi(int n)
+        public static long FindNthFibonacciRecursively(int n)
         {
             if (n <= 0) // Base case, F(0) is always 0
             {
@@ -24,15 +24,15 @@ namespace Sort
             }
 
             // Recursively call for n-1 and n-2
-            return SlowFibonacchi(n - 1) + SlowFibonacchi(n - 2);
+            return FindNthFibonacciRecursively(n - 1) + FindNthFibonacciRecursively(n - 2);
         }
 
         /// <summary>
-        /// Optimized version of SlowFibonacchi function. Still not as good as matrix based one.
+        /// Optimized version of. Still not as good as matrix based one.
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
-        public static long BetterFibonacchi(int n)
+        public static long FindNthFibonacciIterative(int n)
         {
             if (n == 0) return 0;
             if (n == 1) return 1;
