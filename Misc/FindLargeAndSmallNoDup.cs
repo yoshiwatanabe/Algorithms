@@ -28,6 +28,12 @@ namespace Misc
             foreach (int value in input)
             {
                 Debug.Assert(value >= 0, "Only zero or positive number is allowed.");
+
+                if (value == largest || value == larger || value == large || value == smaller || value == smallest)
+                {
+                    continue;
+                }
+
                 if (value > largest)
                 {
                     int evicted = large;
@@ -51,7 +57,7 @@ namespace Misc
                         smaller = evicted;
                     }
                 }                
-                else if (value > larger && value != largest)
+                else if (value > larger)
                 {
                     int evicted = large;
                     large = larger;
@@ -67,12 +73,12 @@ namespace Misc
                         smaller = smallest;
                         smallest = evicted;
                     }
-                    else if (evicted < smaller && evicted != smallest)
+                    else if (evicted < smaller)
                     {
                         smaller = evicted;
                     }
                 }
-                else if (value > large && value != larger && value != largest)
+                else if (value > large)
                 {
                     int evicted = large;
                     large = value;
@@ -87,7 +93,7 @@ namespace Misc
                         smaller = smallest;
                         smallest = evicted;
                     }
-                    else if (evicted < smaller && evicted != smallest)
+                    else if (evicted < smaller)
                     {
                         smaller = evicted;
                     }
@@ -97,7 +103,7 @@ namespace Misc
                     smaller = smallest;
                     smallest = value;
                 }
-                else if (value < smaller && value != smallest)
+                else if (value < smaller)
                 {
                     smaller = value;
                 }       
