@@ -10,7 +10,10 @@ namespace Misc
     {
         static void Main(string[] args)
         {
-            FindLargeAndSmall.ComputeFromArray(new int[] { 13, 0, 3, 5, 2, 0, 12, 11, 1 });
+            string output;
+            output = FindLargeAndSmall.ComputeFromArray(new int[] { 13, 0, 3, 5, 2, 0, 12, 11, 1 });
+            output = FindLargeAndSmallNoDup.ComputeFromArray(new int[] { 13, 13, 13, 0, 3, 5, 2, 0, 12, 11, 1 });
+            Console.Write(output);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,21 +9,33 @@ namespace Misc
 {
     class FindLargeAndSmall
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// Assumptions:
+        /// Input does not include negative numbers.
+        /// </remarks>
         public static string ComputeFromArray(int[] input)
         {
             int largest, larger, large;
-            largest = larger = large = 0;
+            largest = larger = large = int.MinValue;
             int smallest, smaller;
             smallest = smaller = int.MaxValue;
 
             foreach (int value in input)
             {
+                Debug.Assert(value >= 0, "Only zero or positive number is allowed.");
+
                 if (value > large)
                 {
                     int formerLarge = larger;
                     large = value;
 
-                    if (formerLarge < smaller)
+                    if (formerLarge != int.MinValue && // Initial values of int.MinValue (negative number) must not get into small group.
+                        formerLarge < smaller)
                     {
                         smaller = formerLarge; // we can discard the former smaller
                         if (smaller < smallest)
