@@ -101,5 +101,13 @@ namespace Sort
             DoMergeSort(array, 0, array.Length - 1);
             Debug.Assert(IsSorted(array));
         }
+
+        // Visualize.
+        // Imagine a large array at the bottom, then halves on top of it. On each half, there are also
+        // halves. Build this all the way up to the halves becomes two single-element sub-arrays (this
+        // is the base-condition of the recursion, where unwinding starts)
+        // When returning on unwinding, the "sorted" halves are merged into a single merged array using
+        // merge functions. Unwinding continues downword, progressively building sorted halves, getting
+        // merged into larger array (always twice bigger array)
     }
 }

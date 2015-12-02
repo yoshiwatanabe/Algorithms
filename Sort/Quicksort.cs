@@ -82,5 +82,19 @@ namespace Sort
             QuickSort(array, 0, 5);
             Debug.Assert(IsSorted(array));
         }
+
+        // Visualize.
+        // We partition the initial array using partition method. The partition method uses an arbitrarily
+        // chosen value in the array as "pivot" value (I like using the "last" element, but some uses the "first"
+        // element). The partition function returns the "pivot" index when its job is done. 
+        // The partition function guarantees that the processed array is partitioned into two sections, those
+        // on the left of the pivot index is smaller than those in the right of the pivot index. Note that it
+        // does not says that elements in these two sections are sorted. Thus, we have to process more.
+        // Each of the two partitions is independently processed again, and this continues recursively.
+        // The base-condition when the array to be processed is just a single element (use begin and last indices to 
+        // determine that). When base-condition is met, the stack of recursion start unwinding.
+        // When a stack unwindes, it means that the array at that invocation is sorted. Unlike merge sort,
+        // quicksort's unwinding is fast as there is no work left to do. When stack unwinding completes, the array
+        // is sorted.
     }
 }
