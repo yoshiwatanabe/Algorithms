@@ -12,7 +12,9 @@ namespace Misc
         {
             //GenerateAllStringsOfNBits.Run(4);
 
-            MergeLinkedList.Run();
+            //MergeLinkedLists.Run();
+
+            ReverseLinkedList.Run();
         }
     }
 }
