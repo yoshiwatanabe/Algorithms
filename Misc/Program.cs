@@ -10,7 +10,9 @@ namespace Misc
     {
         static void Main(string[] args)
         {
-            GenerateAllStringsOfNBits.Run(4);
+            //GenerateAllStringsOfNBits.Run(4);
+
+            MergeLinkedList.Run();
         }
     }
 }
