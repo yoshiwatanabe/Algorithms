@@ -19,5 +19,10 @@ namespace WordCount
                 ReverseString(array, ++i, --j);
             }
         }
+
+        // Visualize.
+        // Recursively swap the two ends of an input array - working on the same
+        // array at each recursion, but the provided indices define the range.
+        // The stack's heght will be n/2
     }
 }

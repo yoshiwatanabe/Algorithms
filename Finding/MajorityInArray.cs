@@ -74,6 +74,11 @@ namespace Finding
             Debug.Assert(candidate == 1);
             Debug.Assert(IsMajority(array, candidate));
 
+            array = new int[] { 1, 4, 1, 3, 1 };
+            candidate = FindMajorityCandidate(array);
+            Debug.Assert(candidate == 1);
+            Debug.Assert(IsMajority(array, candidate));
+
             array = new int[] { 3, 4, 5, 1, 1, 1 };
             candidate = FindMajorityCandidate(array);
             Debug.Assert(candidate == 1); // 1 is a candidate, but not a majority
