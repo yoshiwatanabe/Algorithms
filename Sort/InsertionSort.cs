@@ -2,7 +2,7 @@
 
 namespace Sort
 {
-    partial class Program
+    public class InsertionSort
     {
         // Insersion sort
         // Imagein a cards on left hand
@@ -11,7 +11,7 @@ namespace Sort
         // touch the [3] card, then see [0], [1], and [2] cards, see if we can insert..
 
 
-        public static void RunInsertionSort(int[] array)
+        public void Sort(int[] array)
         {
             for (int i = 1; i < array.Length; i++) // Tip: start the 2nd element
             {
@@ -34,14 +34,5 @@ namespace Sort
             }
 
         }
-
-
-        public static void TestInsertionSort()
-        {
-            int[] array = new int[] { 34, 5, 38, 25, 51, 8, 33, 53, 21 };
-            RunInsertionSort(array);
-            Debug.Assert(IsSorted(array));
-        }
-
     }
 }

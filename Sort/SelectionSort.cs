@@ -5,14 +5,16 @@ using System.Diagnostics;
 
 namespace Sort
 {
-    partial class Program
+    public class SelectionSort
     {
-        private static void SelectionSort(int[] array)
+        public int[] Sort(int[] array)
         {
-            SelectionSort(array, 0);
+            int[] result = array.Clone() as int[];
+            SelectSmallest(result, 0);
+            return result;
         }
 
-        public static void SelectionSort(int[] array, int index)
+        public static void SelectSmallest(int[] array, int index)
         {
             if (index == array.Length - 1)
             {
@@ -31,16 +33,8 @@ namespace Sort
                 }
             }
 
-            Swap(array, index, smallerPos); // We found the smallest one in this sub-array
-            SelectionSort(array, index + 1); // Recursively process the array, one element less than we have
-        }
-
-        public static void TestSelectionSort()
-        {
-            // Selection Sort
-            int[] array = new int[] { 34, 5, 38, 25, 51, 8, 33, 53, 21 };
-            SelectionSort(array);
-            Debug.Assert(IsSorted(array));
+            Utility.Swap(array, index, smallerPos); // We found the smallest one in this sub-array
+            SelectSmallest(array, index + 1); // Recursively process the array, one element less than we have
         }
 
         // Visualize. With a given set to be sorted, we do a series of comparison to choose the smallest

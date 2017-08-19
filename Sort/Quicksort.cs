@@ -5,17 +5,22 @@ using System.Diagnostics;
 
 namespace Sort
 {
-    partial class Program
+    public class QuickSort
     {
-        public static void QuickSort(int[] array, int begin, int last)
+        public void Sort(int[] array)
+        {
+            Sort(array, 0, array.Length - 1);
+        }
+
+        public void Sort(int[] array, int begin, int last)
         {
             int pivotIndex = 0;
 
             if (begin < last) // it is critical that we have a base case where if begin == last or begin > last, we return (implicit)
             {
                 pivotIndex = Partition(array, begin, last); // note. this can be the same as 'last'
-                QuickSort(array, begin, pivotIndex - 1); // note. we could happ last that is equal to 'begin'
-                QuickSort(array, pivotIndex + 1, last); // note. we could pass begin that is greater than last
+                Sort(array, begin, pivotIndex - 1); // note. we could happ last that is equal to 'begin'
+                Sort(array, pivotIndex + 1, last); // note. we could pass begin that is greater than last
             }
             else
             {
@@ -33,12 +38,12 @@ namespace Sort
             {
                 if (array[i] <= array[last]) // Tip: its less than *and* equal to (why include equal to? because we want a value same as pivot on the left handside (pivot-1) 
                 {
-                    Swap(array, i, storeIndex); // Tip: not that pivot is not involved in swap. Pivot value is just a reference point
+                    Utility.Swap(array, i, storeIndex); // Tip: not that pivot is not involved in swap. Pivot value is just a reference point
                     storeIndex = storeIndex + 1; // Tip: those on the left of this index is "less than equal to pivot value" move on.
                 }
             }
 
-            Swap(array, storeIndex, last); // Why this works? Because we know at [storeIndex] is NOT "less than equal" (otherwise
+            Utility.Swap(array, storeIndex, last); // Why this works? Because we know at [storeIndex] is NOT "less than equal" (otherwise
                                             // it would been left of [storeIndex]. So whatever it is, its "greater than pivot.
                                             // So it is OK to swap it with pivot value.
 
@@ -64,24 +69,25 @@ namespace Sort
                 if (array[i] < pivotValue)
                 {
                     ++storeIndex;
-                    Swap(array, storeIndex, i);
+                    Utility.Swap(array, storeIndex, i);
                 }
             }
 
-            Swap(array, storeIndex + 1, last); // pivot value belongs to "left" group. we know storeIndex +1 contains larger value is must have been compared with pivotValue earilier when 'i' visited it.
+            Utility.Swap(array, storeIndex + 1, last); // pivot value belongs to "left" group. we know storeIndex +1 contains larger value is must have been compared with pivotValue earilier when 'i' visited it.
             return storeIndex + 1; // because storeIndex is 1 before the appropriate insertion point, we must add one
         }
 
-        public static void TestQuickSort()
+        static QuickSort()
         {
-            Partition(new int[] { 12, 7, 14, 9, 10, 11 }, 0, 5);
+            QuickSort.Partition(new int[] { 12, 7, 14, 9, 10, 11 }, 0, 5);
 
-            Partition2(new int[] { 12, 7, 14, 9, 10, 11 }, 0, 5);
+            QuickSort.Partition2(new int[] { 12, 7, 14, 9, 10, 11 }, 0, 5);
 
             int[] array = new int[] { 12, 7, 14, 9, 10, 11 };
-            QuickSort(array, 0, 5);
-            Debug.Assert(IsSorted(array));
+            (new QuickSort()).Sort(array, 0, 5);
+            Debug.Assert(Utility.IsSorted(array));
         }
+
 
         // Visualize.
         // We partition the initial array using partition method. The partition method uses an arbitrarily

@@ -1,47 +1,40 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Sort
 {
-    partial class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            TestSelectionSort();
-            TestInsertionSort();
-            TestQuickSort();
-            TestMergeSort();
+            TestSelectionSort(new int[] { 34, 5, 38, 25, 51, 8, 33, 53, 21 });
+            TestInsertionSort(new int[] { 34, 5, 38, 25, 51, 8, 33, 53, 21 });
+            TestQuickSort(new int[] { 34, 5, 38, 25, 51, 8, 33, 53, 21 });
+            TestMergeSort(new int[] { 34, 5, 38, 25, 51, 8, 33, 53, 21 });
         }
 
-        public static void Swap(int[] array, int pos1, int pos2)
-        {
-            if (pos1 != pos2)
-            {
-                int temp = array[pos1];
-                array[pos1] = array[pos2];
-                array[pos2] = temp;
-            }
+        public static void TestSelectionSort(int[] array)
+        {            
+            Debug.Assert(Utility.IsSorted((new SelectionSort()).Sort(array)));
         }
 
-        public static bool IsSorted(int[] array)
+        public static void TestInsertionSort(int[] array)
         {
-            if (array.Length == 0)
-            {
-                throw new Exception("array must not be null");
-            }
-            else if (array.Length == 1)
-            {
-                return true; // I can't say its not un-sorted, so its sorted
-            }
+            (new InsertionSort()).Sort(array);
+            Debug.Assert(Utility.IsSorted(array));
+        }
 
-            for (int i = 1; i < array.Length; i++)
-            {
-                if (array[i - 1] > array[i])
-                {
-                    return false;
-                }
-            }
+        public static void TestQuickSort(int[] array)
+        {
+            (new QuickSort()).Sort(array);
+            Debug.Assert(Utility.IsSorted(array));
+        }
 
-            return true;
+        public static void TestMergeSort(int[] array)
+        {
+            (new MergeSort()).Sort(array);
+            Debug.Assert(Utility.IsSorted(array));
+
         }
     }
 }

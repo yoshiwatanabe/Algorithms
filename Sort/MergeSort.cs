@@ -3,23 +3,28 @@ using System.Diagnostics;
 
 namespace Sort
 {
-    partial class Program
+    public class MergeSort
     {
-        public static void DoMergeSort(int[] array, int begin, int last)
+        public void Sort(int[] array)
         {
-            int[] helper = new int[array.Length];
-            MergeSort(array, helper, begin, last);
+            Sort(array, 0, array.Length - 1);
         }
 
-        public static void MergeSort(int[] array, int[] helper, int begin, int last)
+        void Sort(int[] array, int begin, int last)
+        {
+            int[] helper = new int[array.Length];
+            RecursiveMergeSort(array, helper, begin, last);
+        }
+
+        static void RecursiveMergeSort(int[] array, int[] helper, int begin, int last)
         {
             if (begin >= last) {
                 return;
             }
 
             int middle = (begin + last) / 2; // Earlier, I was doing "last-begin" which was wrong..
-            MergeSort(array, helper, begin, middle);
-            MergeSort(array, helper, middle + 1, last);            
+            RecursiveMergeSort(array, helper, begin, middle);
+            RecursiveMergeSort(array, helper, middle + 1, last);            
             Merge(array, helper, begin, middle, last);            
         }
 
@@ -34,7 +39,7 @@ namespace Sort
         /// <remarks>
         /// [2, 4, 5 || 3, 8, 9] (begin..middle) (middle+1..last)
         /// </remarks>
-        public static void Merge(int[] array, int[] helper, int begin, int middle, int last)
+        static void Merge(int[] array, int[] helper, int begin, int middle, int last)
         {
             // copy our two-part array elements to our helper.            
             for (int i = begin; i <= last; i++)
@@ -78,29 +83,31 @@ namespace Sort
             }
         }
 
-        public static void TestMergeSort()
+        static MergeSort()
         {
             int[] arrayReadyToBeMerged = new int[] { 2, 4, 5, 3, 8, 9 };
             int[] helper = new int[arrayReadyToBeMerged.Length];
-            Merge(arrayReadyToBeMerged, helper, 0, 2, 5);
-            Debug.Assert(IsSorted(arrayReadyToBeMerged));
+            MergeSort.Merge(arrayReadyToBeMerged, helper, 0, 2, 5);
+            Debug.Assert(Utility.IsSorted(arrayReadyToBeMerged));
 
             int[] array = new int[] { 5, 7 };// , 3, 2, 8, 1, 9, 6 };
-            DoMergeSort(array, 0, array.Length - 1);
-            Debug.Assert(IsSorted(array));
+            (new MergeSort()).Sort(array, 0, array.Length - 1);
+            Debug.Assert(Utility.IsSorted(array));
 
             array = new int[] { 7, 5 };// , 3, 2, 8, 1, 9, 6 };
-            DoMergeSort(array, 0, array.Length - 1);
-            Debug.Assert(IsSorted(array));
+            (new MergeSort()).Sort(array, 0, array.Length - 1);
+            Debug.Assert(Utility.IsSorted(array));
 
             array = new int[] { 7, 5, 3 };
-            DoMergeSort(array, 0, array.Length - 1);
-            Debug.Assert(IsSorted(array));
+            (new MergeSort()).Sort(array, 0, array.Length - 1);
+            Debug.Assert(Utility.IsSorted(array));
 
             array = new int[] { 5, 7, 3, 2 };//, 8, 1, 9, 6 };
-            DoMergeSort(array, 0, array.Length - 1);
-            Debug.Assert(IsSorted(array));
+            (new MergeSort()).Sort(array, 0, array.Length - 1);
+            Debug.Assert(Utility.IsSorted(array));
         }
+
+        
 
         // Visualize.
         // Imagine a large array at the bottom, then halves on top of it. On each half, there are also
