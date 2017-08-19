@@ -5,9 +5,11 @@ namespace Sort
 {
     public class MergeSort
     {
-        public void Sort(int[] array)
+        public int[] Sort(int[] array)
         {
-            Sort(array, 0, array.Length - 1);
+            int[] result = array.Clone() as int[];
+            Sort(result, 0, result.Length - 1);
+            return result;
         }
 
         void Sort(int[] array, int begin, int last)
