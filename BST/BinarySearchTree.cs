@@ -10,10 +10,10 @@ namespace BST
         /// <summary>
         /// Recursively look for a node that is nearest to the target value.
         /// </summary>
-        /// <param name="node"></param>
-        /// <param name="target"></param>
-        /// <param name="nearestSoFar"></param>
-        /// <returns></returns>
+        /// <param name="node">A current node being inspected</param>
+        /// <param name="target">The target value we are looking for a nearest (or exact) node</param>
+        /// <param name="nearestSoFar">Extra parameter to track the best candidate</param>
+        /// <returns>A Node with the nearest value</returns>
         private static Node FindNearestValueNode(Node node, int target, Node nearestSoFar)
         {
             if (node.Value == target)
@@ -24,10 +24,9 @@ namespace BST
 
             if (node.Value < target)
             {
-                // If we can't proceed, the current node maybe the nearest. Compare with the nearest so far and return the nearest
                 if (node.Right == null)
                 {
-                    return ChooseNearestNode(target, node, nearestSoFar);
+                    return nearestSoFar;
                 }
                 else
                 {
@@ -38,7 +37,7 @@ namespace BST
             {
                 if (node.Left == null)
                 {
-                    return ChooseNearestNode(target, node, nearestSoFar);
+                    return nearestSoFar;
                 }
                 else
                 {

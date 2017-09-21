@@ -5,49 +5,77 @@ using System.Diagnostics;
 
 namespace Sort
 {
+    /// <summary>
+    /// https://www.slideshare.net/ywatanabe/quicksort-illustrated-walkthrough-28687625
+    /// </summary>
     public class QuickSort
     {
+        /// <summary>
+        /// This is top-level wrappper Quicksort that takes an input array.
+        /// </summary>
+        /// <param name="array"></param>
+        /// <returns></returns>
         public int[] Sort(int[] array)
         {
-            int[] result = array.Clone() as int[];
+            int[] result = array.Clone() as int[]; // Be nice and do not modify the input. (Alternatively, we can modify it)
             Sort(result, 0, result.Length - 1);
             return result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="array">An input array (the entire input array)</param>
+        /// <param name="begin">The first element of the sub-array to be sorted</param>
+        /// <param name="last">The last element of the sub-array to be sorted</param>
         public void Sort(int[] array, int begin, int last)
         {
             int pivotIndex = 0;
 
-            if (begin < last) // it is critical that we have a base case where if begin == last or begin > last, we return (implicit)
+            if (begin < last)
             {
-                pivotIndex = Partition(array, begin, last); // note. this can be the same as 'last'
-                Sort(array, begin, pivotIndex - 1); // note. we could happ last that is equal to 'begin'
-                Sort(array, pivotIndex + 1, last); // note. we could pass begin that is greater than last
+                pivotIndex = Partition(array, begin, last); // Hopefully, the pivotIndex is near the middle of the array
+                Sort(array, begin, pivotIndex - 1);
+                Sort(array, pivotIndex + 1, last);
             }
             else
             {
-                return;
+                return; // This is the base case to return from recursive function calls.
             }
         }
 
-        public static int Partition(int[] array, int begin, int last)//, int pivotIndex)
+        /// <summary>
+        /// Partition function that organizes the elements such that all elements smaller or equal to the pivot 
+        /// is place to the left of a pivot location, and all the elements greater than the pivot are placed
+        /// to the right of the pivot location. Return value is the index at which pivot element is located.
+        /// Calling function can further sort the left and right subarray separately.
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="begin"></param>
+        /// <param name="last"></param>
+        /// <returns></returns>
+        public static int Partition(int[] array, int begin, int last)
         {
-            //int pivotValue = array[last]; // Just use [last] as a pivot
+            // Upon return, this sotreIndex will be in-between "less than or equal to" partition and "greater than pivot" partition.
+            // storeIndex will move forward only if it accepts a "less than or equal to" element.
+            // At the end, values at storeIndex and pivot are swapped.
+            int storeIndex = begin; 
 
-            int storeIndex = begin; // this will be in-between "less than pivot" and "greater than pivot" groups
-
-            for (int i = begin; i < last; i++) // This index scans from left to right all the way. Note. we do NOT evaluate the last element at [last] because it is a pivot location
+            // We have to scan the entire array - this is O(n) component of the time complexity.
+            for (int i = begin; i < last; i++) // Note. we do NOT evaluate the last element at [last] because it is a pivot location
             {
-                if (array[i] <= array[last]) // Tip: its less than *and* equal to (why include equal to? because we want a value same as pivot on the left handside (pivot-1) 
+                // Tip: its less than *and* equal to (why include equal to? because we want a value same as pivot on the left handside (pivot-1) 
+                if (array[i] <= array[last])
                 {
-                    Utility.Swap(array, i, storeIndex); // Tip: not that pivot is not involved in swap. Pivot value is just a reference point
+                    Utility.Swap(array, i, storeIndex); // Tip: note that pivot is not involved in swap. Pivot value is just a reference point
                     storeIndex = storeIndex + 1; // Tip: those on the left of this index is "less than equal to pivot value" move on.
                 }
             }
 
-            Utility.Swap(array, storeIndex, last); // Why this works? Because we know at [storeIndex] is NOT "less than equal" (otherwise
-                                            // it would been left of [storeIndex]. So whatever it is, its "greater than pivot.
-                                            // So it is OK to swap it with pivot value.
+            // Why? Because we know at [storeIndex] is NOT "less than equal" (otherwise
+            // it would been left of [storeIndex]). So whatever it is, its "greater than pivot.
+            // So it is OK to swap it with pivot value.
+            Utility.Swap(array, storeIndex, last);
 
             return storeIndex;
         }
