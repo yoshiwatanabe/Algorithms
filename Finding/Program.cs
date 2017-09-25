@@ -9,10 +9,12 @@ namespace Finding
     {
         static void Main(string[] args)
         {
-            TestFindDuplicate();
-            TestFindMajority();
-            TestBinarySearch();            
-            TestFindFibonacci();
+            //TestFindDuplicate();
+            //TestFindMajority();
+            //TestBinarySearch();            
+            //TestFindFibonacci();
+            //TestFind21();
+            Find21Take2.TestFind21Take2();
         }
     }
 }

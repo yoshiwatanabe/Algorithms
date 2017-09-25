@@ -38,6 +38,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Find21.cs" />
     <Compile Include="BinarySearch.cs" />
     <Compile Include="Fibonacci.cs" />
     <Compile Include="FindDuplicate.cs" />
