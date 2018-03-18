@@ -38,10 +38,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Find21Take2.cs" />
     <Compile Include="Find21.cs" />
     <Compile Include="BinarySearch.cs" />
     <Compile Include="Fibonacci.cs" />
     <Compile Include="FindDuplicate.cs" />
+    <Compile Include="FindNumberOfIslands.cs" />
     <Compile Include="MajorityInArray.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
