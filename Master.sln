@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCount", "WordCount\WordCount.csproj", "{048C0CF6-DF56-4B81-9895-88D9F94E3CCC}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finding", "Finding\Finding.csproj", "{FDF7F104-E34D-4475-B8A7-E894A1C3773F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Misc", "Misc\Misc.csproj", "{792920FF-9240-4B3F-8125-E032D234618D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringManipulation", "StringManipulation\StringManipulation.csproj", "{3CE43EF1-F4FC-4C14-92E9-3E626C78D2D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,14 @@ Global
 		{792920FF-9240-4B3F-8125-E032D234618D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{792920FF-9240-4B3F-8125-E032D234618D}.Release|x86.ActiveCfg = Release|Any CPU
 		{792920FF-9240-4B3F-8125-E032D234618D}.Release|x86.Build.0 = Release|Any CPU
+		{3CE43EF1-F4FC-4C14-92E9-3E626C78D2D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CE43EF1-F4FC-4C14-92E9-3E626C78D2D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CE43EF1-F4FC-4C14-92E9-3E626C78D2D3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3CE43EF1-F4FC-4C14-92E9-3E626C78D2D3}.Debug|x86.Build.0 = Debug|Any CPU
+		{3CE43EF1-F4FC-4C14-92E9-3E626C78D2D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CE43EF1-F4FC-4C14-92E9-3E626C78D2D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CE43EF1-F4FC-4C14-92E9-3E626C78D2D3}.Release|x86.ActiveCfg = Release|Any CPU
+		{3CE43EF1-F4FC-4C14-92E9-3E626C78D2D3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
