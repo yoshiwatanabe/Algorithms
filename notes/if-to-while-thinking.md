@@ -2,7 +2,7 @@
 # Develop while-based iteration statement from if-based thinking
 
 
-To to express repetitive process, it is sometime easier to start with "if" statement and then convert to "while" statement
+To to express repetitive process, it is sometime easier to start expressing the idea using "if", and then convert to "while" based statement
 
 Say we have an array:
 [2, 5, 3, 7, 8]
