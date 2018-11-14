@@ -47,7 +47,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OneOff.ParentChildSort.cs" />
     <Compile Include="Quicksort.cs" />
-    <Compile Include="SelectionSort.cs" />
+    <Compile Include="SelectionSortRecursive.cs" />
+    <Compile Include="SelectionSortIterative.cs" />
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>

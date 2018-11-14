@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Diagnostics;
-
-namespace Sort
+﻿namespace Sort
 {
-    public class SelectionSort
+    public class SelectionSortRecursive
     {
         public int[] Sort(int[] array)
         {
-            int[] result = array.Clone() as int[];
-            SelectSmallest(result, 0);
-            return result;
+            SelectMinimum(array, 0);
+            return array;
         }
 
-        public static void SelectSmallest(int[] array, int index)
+        public static void SelectMinimum(int[] array, int index)
         {
             if (index == array.Length - 1)
             {
@@ -24,17 +18,20 @@ namespace Sort
             // This block's goal is to obtain the position of the smallest element
             // by comparing to the "current smallest element" (pointed to by the smallerPos)
             // until the iterator index falls off of the end of the array.           
-            int smallerPos = index;
+            int min = index;
             for (int i = index + 1; i < array.Length; i++)
             {
-                if (array[i] < array[smallerPos])
+                if (array[i] < array[min])
                 {
-                    smallerPos = i;
+                    min = i;
                 }
             }
 
-            Utility.Swap(array, index, smallerPos); // We found the smallest one in this sub-array
-            SelectSmallest(array, index + 1); // Recursively process the array, one element less than we have
+            int temp = array[index];
+            array[index] = array[min];
+            array[min] = temp;
+
+            SelectMinimum(array, index + 1); // Recursively process the array, one element less than we have
         }
 
         // Visualize. With a given set to be sorted, we do a series of comparison to choose the smallest
