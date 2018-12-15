@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elevators\ElevatorDispatcher.cs" />
     <Compile Include="FindLargeAndSmall.cs" />
     <Compile Include="GenerateAllStringsOfNBits.cs" />
     <Compile Include="MergeLinkedLists.cs" />
